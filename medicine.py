@@ -13,6 +13,7 @@ class Medicine:
             user="root",
             passwd="Gman1212!"
         )
+        
 
         c = db.cursor()
 
