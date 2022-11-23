@@ -1,6 +1,5 @@
 from tkinter import Entry, Button, Tk, END, mainloop, Label
 import MySQLdb
-# add db import
 
 class Patient:
     def __init__(self):
@@ -9,15 +8,15 @@ class Patient:
 
     # upload data to db
     def submit(self):
-        # db = MySQLdb.connect(
-        #     host="localhost",
-        #     user="root",
-        #     passwd="password"
-        # )
+        db = MySQLdb.connect(
+            host="localhost",
+            user="root",
+            passwd="Gman1212!"
+        )
 
-        # cursor = db.cursor()
-        # cursor.execute("INSERT ")
-        # cursor.close()
+        # c = db.cursor()
+        # c.execute("INSERT ")
+        # c.close()
         pass
 
     def run(self):

@@ -9,16 +9,26 @@ class Employee:
 
     # upload data to db
     def submit(self):
-        # db = MySQLdb.connect(
-        #     host="localhost",
-        #     user="root",
-        #     passwd="password"
-        # )
+        db = MySQLdb.connect(
+            host="localhost",
+            user="root",
+            passwd="Gman1212!"
+        )
 
-        # cursor = db.cursor()
-        # cursor.execute("INSERT ")
-        # cursor.close()
-        pass
+        ename = self.employee_name_e.get()
+        self.employee_name_e.delete(0, END)
+        enum = self.employee_num_e.get()
+        self.employee_num_e.delete(0, END)
+        ssn = self.ssn_e.get()
+        self.ssn_e.delete(0, END)
+        dob = self.dob_e.get()
+        self.dob_e.delete(0, END)
+        add = self.address_e.get()
+        self.address_e.delete(0, END)
+
+        c = db.cursor()
+        c.execute("INSERT INTO EMPLOYEE VALUES (" + ename + "," + str(enum) + "," + str(ssn) + "," + dob + "," + add + ")")
+        c.close()
 
     def run(self):
         self.employee_name_lbl = Label(self.root, text='Employee Name:')

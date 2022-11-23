@@ -5,11 +5,21 @@ import MySQLdb
 db = MySQLdb.connect(
     host="localhost",
     user="root",
-    passwd="password"
+    passwd="Gman1212!"
 )
 
-cursor = db.cursor()
+c = db.cursor()
 
-cursor.execute("CREATE DATABASE IF NOT EXIST psych_office")
+# c.execute("SHOW DATABASES")
+
+# c.execute("CREATE DATABASE psych_office")
+
+c.execute("USE psych_office")
+
+c.execute("SET FOREIGN_KEY_CHECKS = 0")
+
+# c.execute("CREATE TABLE EMPLOYEE (employee_name VARCHAR(20), employee_num INT, ssn INT, dob DATE, address VARCHAR(20), PRIMARY KEY (employee_name, employee_num, ssn))")
+
+print(c.execute("SELECT * FROM EMPLOYEE"))
 
 db.close()
