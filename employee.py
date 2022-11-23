@@ -60,3 +60,7 @@ class Employee:
         self.submit.grid(row=1, column=0)
 
         mainloop()
+
+if __name__ == '__main__':
+    e = Employee()
+    e.run()
