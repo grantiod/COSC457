@@ -1,4 +1,4 @@
-from tkinter import Tk, Button, mainloop, Text
+from tkinter import Tk, Button, mainloop
 from employee import Employee
 from patient import Patient
 from dependent import Dependent

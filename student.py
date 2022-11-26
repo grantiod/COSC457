@@ -15,7 +15,7 @@ class Student:
         )
 
         c = db.cursor()
-
+        c.execute('USE psych_office')
         c.close()
 
     def run(self):

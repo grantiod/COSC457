@@ -1,4 +1,4 @@
-from tkinter import Entry, Tk, END, mainloop, Button
+from tkinter import Entry, Tk, END, mainloop, Button, Label
 import MySQLdb
 
 class SQL:
@@ -16,13 +16,29 @@ class SQL:
 
     # implement output for select queries
     def submit(self):
+        db = MySQLdb.connect(
+            host="localhost",
+            user="root",
+            passwd="Gman1212!"
+        )
+
+        c = db.cursor()
+        c.execute('USE psych_office')
+        
         query = self.entry.get()
         self.entry.delete(0, END)
 
         query = query.lower()
 
-        if query[0:5] == 'select':
-            pass
+        if query[0:6] == 'select':
+            try:
+                output = c.execute(query)
+                output_lbl = Label(self.root, text=output)
+                output_lbl.pack()
+            except:
+                pass
+
+        c.close()
 
 if __name__ == '__main__':
     s = SQL()

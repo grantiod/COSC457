@@ -14,10 +14,9 @@ class Patient:
             passwd="Gman1212!"
         )
 
-        # c = db.cursor()
-        # c.execute("INSERT ")
-        # c.close()
-        pass
+        c = db.cursor()
+        c.execute('USE psych_office')
+        c.close()
 
     def run(self):
         self.patient_id_lbl = Label(self.root, text='Patient ID:')

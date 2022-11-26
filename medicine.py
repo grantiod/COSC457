@@ -14,9 +14,8 @@ class Medicine:
             passwd="Gman1212!"
         )
         
-
         c = db.cursor()
-
+        c.execute('USE psych_office')
         c.close()
 
     def run(self):

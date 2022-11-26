@@ -1,6 +1,5 @@
 from tkinter import Entry, Button, Tk, END, mainloop, Label
 import MySQLdb
-# add db import
 
 class Employee:
     def __init__(self):
@@ -27,6 +26,7 @@ class Employee:
         self.address_e.delete(0, END)
 
         c = db.cursor()
+        c.execute('USE psych_office')
         c.execute("INSERT INTO EMPLOYEE VALUES (" + ename + "," + str(enum) + "," + str(ssn) + "," + dob + "," + add + ")")
         c.close()
 
