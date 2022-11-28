@@ -5,6 +5,8 @@ from dependent import Dependent
 from student import Student
 from medicine import Medicine
 from branch import Branch
+from equipment import Equipment
+from inventory import Inventory
 from sql import SQL
 
 root = Tk()
@@ -88,10 +90,12 @@ def office_room():
     pass
 
 def inventory():
-    pass
+    i = Inventory()
+    i.run()
 
 def equipment():
-    pass
+    e = Equipment()
+    e.run()
 
 def sql():
     s = SQL()
