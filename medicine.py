@@ -16,6 +16,7 @@ class Medicine:
         
         c = db.cursor()
         c.execute('USE psych_office')
+        c.execute('SET FOREIGN_KEY_CHECKS = 0')
         c.close()
 
     def run(self):

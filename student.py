@@ -14,8 +14,17 @@ class Student:
             passwd="Gman1212!"
         )
 
+        student_id = self.student_id_e.get()
+        self.student_id_e.delete(0, END)
+        student_name = self.student_name_e.get()
+        self.student_name_e.delete(0, END)
+        employee_num = self.employee_num_e.get()
+        self.employee_num_e.delete(0, END)
+
         c = db.cursor()
         c.execute('USE psych_office')
+        c.execute('SET FOREIGN_KEY_CHECKS = 0')
+        c.execute("INSERT INTO STUDENT VALUES (" + str(student_id) + ",\"" + student_name + "\"," + str(employee_num) + ")")
         c.close()
 
     def run(self):

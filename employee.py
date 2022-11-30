@@ -27,7 +27,8 @@ class Employee:
 
         c = db.cursor()
         c.execute('USE psych_office')
-        c.execute("INSERT INTO EMPLOYEE VALUES (" + ename + "," + str(enum) + "," + str(ssn) + "," + dob + "," + add + ")")
+        c.execute('SET FOREIGN_KEY_CHECKS = 0')
+        c.execute("INSERT INTO EMPLOYEE VALUES (\"" + ename + "\"," + str(enum) + "," + str(ssn) + ",\"" + dob + "\",\"" + add + "\")")
         c.close()
 
     def run(self):

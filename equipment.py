@@ -14,8 +14,18 @@ class Equipment:
             passwd="Gman1212!"
         )
 
+        asset_id = self.asset_id_e.get()
+        self.asset_id_e.delete(0, END)
+        estimated_value = self.estimated_value_e.get()
+        self.estimated_value_e.delete(0, END)
+        contact_on_file = self.contact_on_file_e.get()
+        self.contact_on_file_e.delete(0, END)
+        employee_num = self.employee_num_e.get()
+        self.employee_num_e.delete(0, END)
+
         c = db.cursor()
         c.execute('USE psych_office')
+        c.execute('SET FOREIGN_KEY_CHECKS = 0')
         c.close()
 
     def run(self):

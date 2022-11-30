@@ -14,8 +14,23 @@ class Inventory:
             passwd="Gman1212!"
         )
 
+        items = self.items_e.get()
+        self.items_e.delete(0, END)
+        stock = self.stock_e.get()
+        self.stock_e.delete(0, END)
+        supplier_address = self.supplier_address_e.get()
+        self.supplier_address_e.delete(0, END)
+        supplier_contact = self.supplier_contact_e.get()
+        self.supplier_contact_e.delete(0, END)
+        inventory_location = self.inventory_location_e.get()
+        self.inventory_location_e.delete(0, END)
+        branch_num = self.branch_num_e.get()
+        self.branch_num_e.delete(0, END)
+
         c = db.cursor()
         c.execute('USE psych_office')
+        c.execute('SET FOREIGN_KEY_CHECKS = 0')
+        c.execute('INSERT INTO INVENTORY VALUES (\"' + items + "\"," + str(stock) + ",\"" + supplier_address + "\",\"" + supplier_contact + "\",\"" + inventory_location + "\"," + str(branch_num) + ')')
         c.close()
 
     def run(self):
