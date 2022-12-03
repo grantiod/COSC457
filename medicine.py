@@ -13,11 +13,29 @@ class Medicine:
             user="root",
             passwd="Gman1212!"
         )
+
+        medication_id = self.medication_id_e.get()
+        self.medication_id_e.delete(0, END)
+        manufacturer = self.manufacturer_e.get()
+        self.manufacturer_e.delete(0, END)
+        prescription_amount = self.prescription_amount_e.get()
+        self.prescription_amount_e.delete(0, END)
+        prescription_date = self.prescription_date_e.get()
+        self.prescription_date_e.delete(0, END)
+        employee_num = self.employee_num_e.get()
+        self.employee_num_e.delete()
+        patient_name = self.patient_name_e.get()
+        self.patient_name_e.delete(0, END)
+        patient_id = self.patient_id_e.get()
+        self.patient_id_e.delete(0, END)
         
         c = db.cursor()
         c.execute('USE psych_office')
         c.execute('SET FOREIGN_KEY_CHECKS = 0')
+        c.execute("INSERT INTO MEDICATIONS VALUES (" + medication_id + ",\"" + manufacturer + "\"," + prescription_amount + ",\"" + prescription_date + "\"," + employee_num + ",\"" + patient_name + "\"," + patient_id + ")")
+        db.commit()
         c.close()
+        db.close()
 
     def run(self):
         self.medication_id_lbl = Label(self.root, text='Medication ID:')

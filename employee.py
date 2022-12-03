@@ -28,8 +28,10 @@ class Employee:
         c = db.cursor()
         c.execute('USE psych_office')
         c.execute('SET FOREIGN_KEY_CHECKS = 0')
-        c.execute("INSERT INTO EMPLOYEE VALUES (\"" + ename + "\"," + str(enum) + "," + str(ssn) + ",\"" + dob + "\",\"" + add + "\")")
+        c.execute("INSERT INTO EMPLOYEE VALUES (\"" + ename + "\"," + enum + "," + ssn + ",\"" + dob + "\",\"" + add + "\")")
+        db.commit()
         c.close()
+        db.close()
 
     def run(self):
         self.employee_name_lbl = Label(self.root, text='Employee Name:')

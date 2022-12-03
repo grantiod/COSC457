@@ -24,8 +24,10 @@ class Student:
         c = db.cursor()
         c.execute('USE psych_office')
         c.execute('SET FOREIGN_KEY_CHECKS = 0')
-        c.execute("INSERT INTO STUDENT VALUES (" + str(student_id) + ",\"" + student_name + "\"," + str(employee_num) + ")")
+        c.execute("INSERT INTO STUDENT VALUES (" + student_id + ",\"" + student_name + "\"," + employee_num + ")")
+        db.commit()
         c.close()
+        db.close()
 
     def run(self):
         self.student_id_lbl = Label(self.root, text='Student ID:')

@@ -26,7 +26,10 @@ class Equipment:
         c = db.cursor()
         c.execute('USE psych_office')
         c.execute('SET FOREIGN_KEY_CHECKS = 0')
+        c.execute("INSERT INTO EQUIPMENT VALUES (" + asset_id + "," + estimated_value + ",\"" + contact_on_file + "\"," + employee_num + ")")
+        db.commit()
         c.close()
+        db.close()
 
     def run(self):
         self.asset_id_lbl = Label(self.root, text='Asset ID:')

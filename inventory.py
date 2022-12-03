@@ -30,8 +30,10 @@ class Inventory:
         c = db.cursor()
         c.execute('USE psych_office')
         c.execute('SET FOREIGN_KEY_CHECKS = 0')
-        c.execute('INSERT INTO INVENTORY VALUES (\"' + items + "\"," + str(stock) + ",\"" + supplier_address + "\",\"" + supplier_contact + "\",\"" + inventory_location + "\"," + str(branch_num) + ')')
+        c.execute('INSERT INTO INVENTORY VALUES (\"' + items + "\"," + stock + ",\"" + supplier_address + "\",\"" + supplier_contact + "\",\"" + inventory_location + "\"," + branch_num + ')')
+        db.commit()
         c.close()
+        db.close()
 
     def run(self):
         self.items_lbl = Label(self.root, text='Items:')

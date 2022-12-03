@@ -24,21 +24,28 @@ class SQL:
 
         c = db.cursor()
         c.execute('USE psych_office')
-        
+
         query = self.entry.get()
-        self.entry.delete(0, END)
+        # self.entry.delete(0, END)
 
-        query = query.lower()
+        query = query.upper()
+        # print(query)
 
-        if query[0:6] == 'select':
+        if query[0:6] == 'SELECT':
             try:
-                output = c.execute(query)
-                output_lbl = Label(self.root, text=output)
-                output_lbl.pack()
+                c.execute(query)
+                output = c.fetchall()
+                print("this far")
+                for x in output:
+                    output_lbl = Label(self.root, text=x)
+                    output_lbl.pack()
+                    print(x)
+                print("done")
             except:
                 pass
 
         c.close()
+        db.close()
 
 if __name__ == '__main__':
     s = SQL()

@@ -14,10 +14,24 @@ class Branch:
             passwd="Gman1212!"
         )
 
+        branch_num = self.branch_num_e.get()
+        self.branch_num_e.delete(0, END)
+        branch_name = self.branch_name_e.get()
+        self.branch_name_e.delete(0, END)
+        state = self.state_e.get()
+        self.state_e.delete(0, END)
+        address = self.address_e.get()
+        self.address_e.delete(0, END)
+        contact = self.contact_e.get()
+        self.contact_e.delete(0, END)
+
         c = db.cursor()
         c.execute('USE psych_office')
         c.execute('SET FOREIGN_KEY_CHECKS = 0')
+        c.execute("INSERT INTO BRANCHES VALUES (\"" + branch_num + "\",\"" + branch_name + "\",\"" + state + "\",\"" + address + "\",\"" + contact + "\")")
+        db.commit()
         c.close()
+        db.close()
 
     def run(self):
         self.branch_num_lbl = Label(self.root, text='Branch Num:')

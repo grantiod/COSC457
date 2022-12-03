@@ -14,10 +14,28 @@ class Patient:
             passwd="Gman1212!"
         )
 
+        patient_id = self.patient_id_e.get()
+        self.patient_id_e.delete(0, END)
+        patient_name = self.patient_name_e.get()
+        self.patient_name_e.delete(0, END)
+        emergency_contact = self.emergency_contact_e.get()
+        self.emergency_contact_e.delete(0, END)
+        dob = self.dob_e.get()
+        self.dob_e.delete()
+        phone = self.phone_e.get()
+        self.phone_e.delete(0, END)
+        email = self.email_e.get()
+        self.email_e.delete(0, END)
+        address = self.address_e.get()
+        self.address_e.delete(0, END)
+
         c = db.cursor()
         c.execute('USE psych_office')
         c.execute('SET FOREIGN_KEY_CHECKS = 0')
+        c.execute("INSERT INTO PATIENT VALUES (" + patient_id + ",\"" + patient_name + "\",\"" + emergency_contact + "\",\"" + dob + "\",\"" + phone + "\",\"" + email + "\",\"" + address + "\")")
+        db.commit()
         c.close()
+        db.close()
 
     def run(self):
         self.patient_id_lbl = Label(self.root, text='Patient ID:')

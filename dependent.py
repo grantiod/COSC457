@@ -14,10 +14,24 @@ class Dependent:
             passwd="Gman1212!"
         )
 
+        dependent_name = self.dependent_name_e.get()
+        self.dependent_name_e.delete(0, END)
+        employee_num = self.employee_num_e.get()
+        self.employee_num_e.delete(0, END)
+        dep_dob = self.dep_dob_e.get()
+        self.dep_dob_e.delete(0, END)
+        address = self.address_e.get()
+        self.address_e.delete(0, END)
+        relationship = self.relationship_e.get()
+        self.relationship_e.delete(0, END)
+
         c = db.cursor()
         c.execute('USE psych_office')
         c.execute('SET FOREIGN_KEY_CHECKS = 0')
+        c.execute("INSERT INTO DEPENDENT VALUES (\"" + dependent_name + "\"," + employee_num + ",\"" + dep_dob + "\",\"" + address + "\",\"" + relationship + "\")")
+        db.commit()
         c.close()
+        db.close()
 
     def run(self):
         self.dependent_name_lbl = Label(self.root, text='Dependent Name:')
