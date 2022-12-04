@@ -29,6 +29,7 @@ class Employee:
         c.execute('USE psych_office')
         c.execute('SET FOREIGN_KEY_CHECKS = 0')
         c.execute("INSERT INTO EMPLOYEE VALUES (\"" + ename + "\"," + enum + "," + ssn + ",\"" + dob + "\",\"" + add + "\")")
+        c.execute('SET FOREIGN_KEY_CHECKS = 1')
         db.commit()
         c.close()
         db.close()

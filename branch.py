@@ -29,6 +29,7 @@ class Branch:
         c.execute('USE psych_office')
         c.execute('SET FOREIGN_KEY_CHECKS = 0')
         c.execute("INSERT INTO BRANCHES VALUES (\"" + branch_num + "\",\"" + branch_name + "\",\"" + state + "\",\"" + address + "\",\"" + contact + "\")")
+        c.execute('SET FOREIGN_KEY_CHECKS = 1')
         db.commit()
         c.close()
         db.close()

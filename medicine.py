@@ -33,6 +33,7 @@ class Medicine:
         c.execute('USE psych_office')
         c.execute('SET FOREIGN_KEY_CHECKS = 0')
         c.execute("INSERT INTO MEDICATIONS VALUES (" + medication_id + ",\"" + manufacturer + "\"," + prescription_amount + ",\"" + prescription_date + "\"," + employee_num + ",\"" + patient_name + "\"," + patient_id + ")")
+        c.execute('SET FOREIGN_KEY_CHECKS = 1')
         db.commit()
         c.close()
         db.close()

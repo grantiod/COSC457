@@ -33,6 +33,7 @@ class Patient:
         c.execute('USE psych_office')
         c.execute('SET FOREIGN_KEY_CHECKS = 0')
         c.execute("INSERT INTO PATIENT VALUES (" + patient_id + ",\"" + patient_name + "\",\"" + emergency_contact + "\",\"" + dob + "\",\"" + phone + "\",\"" + email + "\",\"" + address + "\")")
+        c.execute('SET FOREIGN_KEY_CHECKS = 1')
         db.commit()
         c.close()
         db.close()

@@ -7,6 +7,8 @@ from medicine import Medicine
 from branch import Branch
 from equipment import Equipment
 from inventory import Inventory
+from office_room import Office_Room
+from procedures import Procedures
 from sql import SQL
 
 root = Tk()
@@ -84,10 +86,12 @@ def office_bill():
     pass
 
 def procedure():
-    pass
+    p = Procedures()
+    p.run()
 
 def office_room():
-    pass
+    o = Office_Room()
+    o.run()
 
 def inventory():
     i = Inventory()

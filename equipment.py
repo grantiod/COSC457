@@ -27,6 +27,7 @@ class Equipment:
         c.execute('USE psych_office')
         c.execute('SET FOREIGN_KEY_CHECKS = 0')
         c.execute("INSERT INTO EQUIPMENT VALUES (" + asset_id + "," + estimated_value + ",\"" + contact_on_file + "\"," + employee_num + ")")
+        c.execute('SET FOREIGN_KEY_CHECKS = 1')
         db.commit()
         c.close()
         db.close()

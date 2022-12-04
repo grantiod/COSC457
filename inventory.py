@@ -31,6 +31,7 @@ class Inventory:
         c.execute('USE psych_office')
         c.execute('SET FOREIGN_KEY_CHECKS = 0')
         c.execute('INSERT INTO INVENTORY VALUES (\"' + items + "\"," + stock + ",\"" + supplier_address + "\",\"" + supplier_contact + "\",\"" + inventory_location + "\"," + branch_num + ')')
+        c.execute('SET FOREIGN_KEY_CHECKS = 1')
         db.commit()
         c.close()
         db.close()
