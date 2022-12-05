@@ -21,7 +21,7 @@ class Patient:
         emergency_contact = self.emergency_contact_e.get()
         self.emergency_contact_e.delete(0, END)
         dob = self.dob_e.get()
-        self.dob_e.delete()
+        self.dob_e.delete(0, END)
         phone = self.phone_e.get()
         self.phone_e.delete(0, END)
         email = self.email_e.get()

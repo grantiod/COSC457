@@ -9,6 +9,13 @@ from equipment import Equipment
 from inventory import Inventory
 from office_room import Office_Room
 from procedures import Procedures
+from office_bills import Office_Bills
+from business_accounts import Business_Accounts
+from referrals import Referrals
+from operations import Operations
+from pharmacy import Pharmacy
+from patient_health_insurance import Patient_Health_Insurance
+from patient_bills import Patient_Bills
 from sql import SQL
 
 root = Tk()
@@ -57,33 +64,40 @@ def patient_account():
     pass
 
 def patient_bill():
-    pass
+    p = Patient_Bills()
+    p.run()
 
 def patient_health_insurance():
-    pass
+    p = Patient_Health_Insurance()
+    p.run()
 
 def operation():
-    pass
+    o = Operations()
+    o.run()
 
 def pharmacy():
-    pass
+    p = Pharmacy()
+    p.run()
 
 def medicine():
     m = Medicine()
     m.run()
 
 def referral():
-    pass
+    r = Referrals()
+    r.run()
 
 def branch():
     b = Branch()
     b.run()
 
 def business_acc():
-    pass
+    b = Business_Accounts()
+    b.run()
 
 def office_bill():
-    pass
+    o = Office_Bills()
+    o.run()
 
 def procedure():
     p = Procedures()

@@ -10,7 +10,6 @@ dbui.py is the main file for the project.
 Employee, Patient, etc. are classes that act as pop-up windows.
 Each class name corresponds to a different table in the DB.
 
-db.py is a test file where the database is created.
-To use db.py, there must be a MySQL server run locally.
+To use dbui.py, there must be a MySQL server run locally.
 If you do not have one, open one on MySQL Workbench.
 Use the username and password you use locally for Workbench in place of the ones I provided in db.py

@@ -21,7 +21,7 @@ class Procedures:
         procedure_criteria = self.procedure_criteria_e.get()
         self.procedure_criteria_e.delete(0, END)
         branch_num = self.branch_num_e.get()
-        self.branch_num_e.delete()
+        self.branch_num_e.delete(0, END)
 
         c = db.cursor()
         c.execute('USE psych_office')

@@ -23,7 +23,7 @@ class Medicine:
         prescription_date = self.prescription_date_e.get()
         self.prescription_date_e.delete(0, END)
         employee_num = self.employee_num_e.get()
-        self.employee_num_e.delete()
+        self.employee_num_e.delete(0, END)
         patient_name = self.patient_name_e.get()
         self.patient_name_e.delete(0, END)
         patient_id = self.patient_id_e.get()

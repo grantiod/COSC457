@@ -21,7 +21,7 @@ class Office_Room:
         room_num = self.room_num_e.get()
         self.room_num_e.delete(0, END)
         employee_num = self.employee_num_e.get()
-        self.employee_num_e.delete()
+        self.employee_num_e.delete(0, END)
 
         c = db.cursor()
         c.execute('USE psych_office')

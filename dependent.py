@@ -28,7 +28,7 @@ class Dependent:
         c = db.cursor()
         c.execute('USE psych_office')
         c.execute('SET FOREIGN_KEY_CHECKS = 0')
-        c.execute("INSERT INTO DEPENDENT VALUES (\"" + dependent_name + "\"," + employee_num + ",\"" + dep_dob + "\",\"" + address + "\",\"" + relationship + "\")")
+        c.execute("INSERT INTO DEPENDENTS VALUES (\"" + dependent_name + "\"," + employee_num + ",\"" + dep_dob + "\",\"" + address + "\",\"" + relationship + "\")")
         c.execute('SET FOREIGN_KEY_CHECKS = 1')
         db.commit()
         c.close()
