@@ -16,6 +16,14 @@ from operations import Operations
 from pharmacy import Pharmacy
 from patient_health_insurance import Patient_Health_Insurance
 from patient_bills import Patient_Bills
+from patient_account import Patient_Account
+from appointments import Appointments
+from k_plan import K_Plan
+from healthcare_worker import Healthcare_Worker
+from employee_sick_days import Employee_Sick_Days
+from employee_vacation_days import Employee_Vacation_Days
+from employee_working_hours import Employee_Working_Hours
+from employee_health_insurance import Employee_Health_Insurance
 from sql import SQL
 
 root = Tk()
@@ -28,16 +36,20 @@ def employee():
     e.run()
 
 def employee_health_insurance():
-    pass
+    e = Employee_Health_Insurance()
+    e.run()
 
 def employee_working_hours():
-    pass
+    e = Employee_Working_Hours()
+    e.run()
 
 def employee_vacation_days():
-    pass
+    e = Employee_Vacation_Days()
+    e.run()
 
 def employee_sick_days():
-    pass
+    e = Employee_Sick_Days()
+    e.run()
 
 def dependent():
     d = Dependent()
@@ -48,20 +60,24 @@ def student():
     s.run()
 
 def healthcare_worker():
-    pass
+    h = Healthcare_Worker()
+    h.run()
 
 def kplan():
-    pass
+    k = K_Plan()
+    k.run()
 
 def patient():
     p = Patient()
     p.run()
 
 def appointment():
-    pass
+    a = Appointments()
+    a.run()
 
 def patient_account():
-    pass
+    p = Patient_Account()
+    p.run()
 
 def patient_bill():
     p = Patient_Bills()
