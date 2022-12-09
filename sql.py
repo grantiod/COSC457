@@ -1,4 +1,4 @@
-from tkinter import Entry, Tk, END, mainloop, Button, Label
+from tkinter import Entry, Tk, mainloop, Button, Label, Toplevel
 import MySQLdb
 
 class SQL:
@@ -31,13 +31,15 @@ class SQL:
         query = query.upper()
         # print(query)
 
+        toplevel = Toplevel(self.root)
+
         if query[0:6] == 'SELECT':
             try:
                 c.execute(query)
                 output = c.fetchall()
-                w = 2
+                w = 0
                 for x in output:
-                    output_lbl = Label(self.root, text=x)
+                    output_lbl = Label(toplevel, text=x)
                     output_lbl.grid(row=w, column=0, padx=5, pady=5)
                     w += 1
             except:
