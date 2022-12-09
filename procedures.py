@@ -26,7 +26,7 @@ class Procedures:
         c = db.cursor()
         c.execute('USE psych_office')
         c.execute('SET FOREIGN_KEY_CHECKS = 0')
-        c.execute("INSERT INTO PROCEDURES VALUES (" + procedure_num + ",\"" + procedure_type + "\",\"" + procedure_criteria + "\"," + branch_num + "\")")
+        c.execute("INSERT INTO PROCEDURES VALUES (" + procedure_num + ",\"" + procedure_type + "\",\"" + procedure_criteria + "\"," + branch_num + ")")
         c.execute('SET FOREIGN_KEY_CHECKS = 1')
         db.commit()
         c.close()
