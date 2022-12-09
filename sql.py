@@ -31,9 +31,9 @@ class SQL:
         query = query.upper()
         # print(query)
 
-        toplevel = Toplevel(self.root)
-
         if query[0:6] == 'SELECT':
+            toplevel = Toplevel(self.root)
+
             try:
                 c.execute(query)
                 output = c.fetchall()
@@ -44,6 +44,8 @@ class SQL:
                     w += 1
             except:
                 pass
+        else:
+            pass
 
         db.commit()
         c.close()
