@@ -35,15 +35,15 @@ class SQL:
             try:
                 c.execute(query)
                 output = c.fetchall()
-                print("this far")
+                w = 2
                 for x in output:
                     output_lbl = Label(self.root, text=x)
-                    output_lbl.pack()
-                    print(x)
-                print("done")
+                    output_lbl.grid(row=w, column=0, padx=5, pady=5)
+                    w += 1
             except:
                 pass
 
+        db.commit()
         c.close()
         db.close()
 
