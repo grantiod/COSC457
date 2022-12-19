@@ -24,6 +24,7 @@ from paid_leave import Paid_Leave
 from office_bill import Office_Bill
 from getmeds import Get_Meds
 from getappointments import Get_Appt
+from getemergencycontact import Get_EC
 from sql import SQL
 
 root = Tk()
@@ -135,6 +136,10 @@ def getappt():
     g = Get_Appt()
     g.run()
 
+def getec():
+    g = Get_EC()
+    g.run()
+
 # EMPLOYEE
 employee_btn = Button(root, text="Employee", command=employee)
 employee_btn.grid(row=0, column=0, padx=10, pady=10)
@@ -238,6 +243,10 @@ getmeds_btn.grid(row=3, column=1, padx=10, pady=10)
 # get appointments
 getappt_btn = Button(root, text="Get Appointments", command=getappt)
 getappt_btn.grid(row=3, column=2, padx=10, pady=10)
+
+# get emergency contact
+getec_btn = Button(root, text="Get Emergency Contact", command=getec)
+getec_btn.grid(row=3, column=3, padx=10, pady=10)
 
 if __name__ == "__main__":
     root.mainloop()
