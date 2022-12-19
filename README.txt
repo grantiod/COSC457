@@ -12,4 +12,6 @@ Each class name corresponds to a different table in the DB.
 
 To use dbui.py, there must be a MySQL server run locally.
 If you do not have one, open one on MySQL Workbench.
-Use the username and password you use locally for Workbench in place of the ones I provided in db.py
+Whatever username and password you use to run your MySQL server locally must be used in substiution for the
+username and password I have in each of the class files (all non-dbui.py files). You will need to go in and
+edit the files individually so the UI can connect to the MySQL server.

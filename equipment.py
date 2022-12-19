@@ -22,11 +22,13 @@ class Equipment:
         self.contact_on_file_e.delete(0, END)
         employee_num = self.employee_num_e.get()
         self.employee_num_e.delete(0, END)
+        branch = self.branch_e.get()
+        self.branch_e.delete(0, END)
 
         c = db.cursor()
-        c.execute('USE psych_office')
+        c.execute('USE psych_office_DB')
         c.execute('SET FOREIGN_KEY_CHECKS = 0')
-        c.execute("INSERT INTO EQUIPMENT VALUES (" + asset_id + "," + estimated_value + ",\"" + contact_on_file + "\"," + employee_num + ")")
+        c.execute("INSERT INTO EQUIPMENT VALUES (" + asset_id + "," + estimated_value + ",\"" + contact_on_file + "\"," + employee_num + "," + branch + ")")
         c.execute('SET FOREIGN_KEY_CHECKS = 1')
         db.commit()
         c.close()
@@ -48,10 +50,15 @@ class Equipment:
         self.contact_on_file_e = Entry(self.root, width=10, borderwidth=1)
         self.contact_on_file_e.grid(row=0, column=5, padx=5, pady=5)
 
-        self.employee_num_lbl = Label(self.root, text='Employee Num:')
+        self.employee_num_lbl = Label(self.root, text='Employee ID:')
         self.employee_num_lbl.grid(row=0, column=6, padx=5, pady=5)
         self.employee_num_e = Entry(self.root, width=10, borderwidth=1)
         self.employee_num_e.grid(row=0, column=7, padx=5, pady=5)
+
+        self.branch_lbl = Label(self.root, text='Branch Num:')
+        self.branch_lbl.grid(row=0, column=8, padx=5, pady=5)
+        self.branch_e = Entry(self.root, width=10, borderwidth=1)
+        self.branch_e.grid(row=0, column=9, padx=5, pady=5)
 
         self.submit = Button(self.root, text='Submit', padx=5, pady=5, command=self.submit)
         self.submit.grid(row=1, column=0)

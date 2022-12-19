@@ -1,10 +1,10 @@
 from tkinter import Entry, Button, Tk, END, mainloop, Label
 import MySQLdb
 
-class Office_Bills:
+class Office_Bill:
     def __init__(self):
         self.root = Tk()
-        self.root.title('Office Bills')
+        self.root.title('Office Bill')
 
     # upload data to db
     def submit(self):
@@ -28,9 +28,9 @@ class Office_Bills:
         self.charge_e.delete(0, END)
 
         c = db.cursor()
-        c.execute('USE psych_office')
+        c.execute('USE psych_office_DB')
         c.execute('SET FOREIGN_KEY_CHECKS = 0')
-        c.execute("INSERT INTO OFFICE_BILLS VALUES (" + bill_num + "," + branch_num + ",\"" + issue_date + "\",\"" + issuer + "\",\"" + payment_date + "\"," + charge + ")")
+        c.execute("INSERT INTO OFFICE_BILL VALUES (" + bill_num + "," + branch_num + ",\"" + issue_date + "\",\"" + issuer + "\",\"" + payment_date + "\"," + charge + ")")
         c.execute('SET FOREIGN_KEY_CHECKS = 1')
         db.commit()
         c.close()
@@ -73,5 +73,5 @@ class Office_Bills:
         mainloop()
 
 if __name__ == '__main__':
-    o = Office_Bills()
+    o = Office_Bill()
     o.run()

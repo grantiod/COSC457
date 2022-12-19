@@ -1,10 +1,10 @@
 from tkinter import Entry, Button, Tk, END, mainloop, Label
 import MySQLdb
 
-class Patient_Bills:
+class Patient_Bill:
     def __init__(self):
         self.root = Tk()
-        self.root.title('Patient Bills')
+        self.root.title('Patient Bill')
 
     # upload data to db
     def submit(self):
@@ -14,8 +14,8 @@ class Patient_Bills:
             passwd="Gman1212!"
         )
 
-        patient_name = self.patient_name_e.get()
-        self.patient_name_e.delete(0, END)
+        bill_id = self.bill_num_e.get()
+        self.bill_num_e.delete(0, END)
         date = self.date_e.get()
         self.date_e.delete(0, END)
         payment_due = self.payment_due_e.get()
@@ -28,29 +28,29 @@ class Patient_Bills:
         c = db.cursor()
         c.execute('USE psych_office')
         c.execute('SET FOREIGN_KEY_CHECKS = 0')
-        c.execute("INSERT INTO PATIENT_BILLS VALUES (\"" + patient_name + "\",\"" + date + "\",\"" + payment_due + "\"," + cost + "," + patient_id + ")")
+        c.execute("INSERT INTO PATIENT_BILL VALUES (\"" + bill_id + "\",\"" + date + "\",\"" + payment_due + "\"," + cost + "," + patient_id + ")")
         c.execute('SET FOREIGN_KEY_CHECKS = 1')
         db.commit()
         c.close()
         db.close()
 
     def run(self):
-        self.patient_name_lbl = Label(self.root, text='Patient Name:')
-        self.patient_name_lbl.grid(row=0, column=0, padx=5, pady=5)
-        self.patient_name_e = Entry(self.root, width=10, borderwidth=1)
-        self.patient_name_e.grid(row=0, column=1, padx=5, pady=5)
+        self.bill_num_lbl = Label(self.root, text='Bill Num:')
+        self.bill_num_lbl.grid(row=0, column=0, padx=5, pady=5)
+        self.bill_num_e = Entry(self.root, width=10, borderwidth=1)
+        self.bill_num_e.grid(row=0, column=1, padx=5, pady=5)
 
         self.date_lbl = Label(self.root, text='Date:')
         self.date_lbl.grid(row=0, column=2, padx=5, pady=5)
         self.date_e = Entry(self.root, width=10, borderwidth=1)
         self.date_e.grid(row=0, column=3, padx=5, pady=5)
 
-        self.payment_due_lbl = Label(self.root, text='Payment Due:')
+        self.payment_due_lbl = Label(self.root, text='Due Date:')
         self.payment_due_lbl.grid(row=0, column=4, padx=5, pady=5)
         self.payment_due_e = Entry(self.root, width=10, borderwidth=1)
         self.payment_due_e.grid(row=0, column=5, padx=5, pady=5)
 
-        self.cost_lbl = Label(self.root, text='Cost:')
+        self.cost_lbl = Label(self.root, text='Total:')
         self.cost_lbl.grid(row=0, column=6, padx=5, pady=5)
         self.cost_e = Entry(self.root, width=10, borderwidth=1)
         self.cost_e.grid(row=0, column=7, padx=5, pady=5)
@@ -66,5 +66,5 @@ class Patient_Bills:
         mainloop()
 
 if __name__ == '__main__':
-    p = Patient_Bills()
+    p = Patient_Bill()
     p.run()

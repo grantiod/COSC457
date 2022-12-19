@@ -1,10 +1,10 @@
 from tkinter import Entry, Button, Tk, END, mainloop, Label
 import MySQLdb
 
-class Referrals:
+class Referral:
     def __init__(self):
         self.root = Tk()
-        self.root.title('Referrals')
+        self.root.title('Referral')
 
     # upload data to db
     def submit(self):
@@ -20,21 +20,17 @@ class Referrals:
         self.phone_e.delete(0, END)
         accepted_insur = self.accepted_insurances_e.get()
         self.accepted_insurances_e.delete(0, END)
-        availability = self.availability_e.get()
-        self.availability_e.delete(0, END)
         practice = self.practice_e.get()
         self.practice_e.delete(0, END)
-        telehealth_offered = self.telehealth_offered_e.get()
-        self.telehealth_offered_e.delete(0, END)
         patient_id = self.patient_id_e.get()
         self.patient_id_e.delete(0, END)
         employee_num = self.employee_num_e.get()
         self.employee_num_e.delete(0, END)
 
         c = db.cursor()
-        c.execute('USE psych_office')
+        c.execute('USE psych_office_DB')
         c.execute('SET FOREIGN_KEY_CHECKS = 0')
-        c.execute("INSERT INTO REFERRALS VALUES (\"" + address + "\",\"" + phone + "\",\"" + accepted_insur + "\",\"" + availability + "\",\"" + practice + "\",\"" + telehealth_offered + "\"," + patient_id + "," + employee_num + ")")
+        c.execute("INSERT INTO REFERRALS VALUES (\"" + address + "\",\"" + phone + "\",\"" + accepted_insur + "\",\"" + practice + "\"," + patient_id + "," + employee_num + ")")
         c.execute('SET FOREIGN_KEY_CHECKS = 1')
         db.commit()
         c.close()
@@ -56,30 +52,20 @@ class Referrals:
         self.accepted_insurances_e = Entry(self.root, width=10, borderwidth=1)
         self.accepted_insurances_e.grid(row=0, column=5, padx=5, pady=5)
 
-        self.availability_lbl = Label(self.root, text='Availability:')
-        self.availability_lbl.grid(row=0, column=6, padx=5, pady=5)
-        self.availability_e = Entry(self.root, width=10, borderwidth=1)
-        self.availability_e.grid(row=0, column=7, padx=5, pady=5)
-
-        self.practice_lbl = Label(self.root, text='Practice:')
-        self.practice_lbl.grid(row=0, column=8, padx=5, pady=5)
+        self.practice_lbl = Label(self.root, text='Practice Name:')
+        self.practice_lbl.grid(row=0, column=6, padx=5, pady=5)
         self.practice_e = Entry(self.root, width=10, borderwidth=1)
-        self.practice_e.grid(row=0, column=9, padx=5, pady=5)
-
-        self.telehealth_offered_lbl = Label(self.root, text='Telehealth Offered:')
-        self.telehealth_offered_lbl.grid(row=0, column=10, padx=5, pady=5)
-        self.telehealth_offered_e = Entry(self.root, width=10, borderwidth=1)
-        self.telehealth_offered_e.grid(row=0, column=11, padx=5, pady=5)
+        self.practice_e.grid(row=0, column=7, padx=5, pady=5)
 
         self.patient_id_lbl = Label(self.root, text='Patient ID:')
-        self.patient_id_lbl.grid(row=0, column=12, padx=5, pady=5)
+        self.patient_id_lbl.grid(row=0, column=8, padx=5, pady=5)
         self.patient_id_e = Entry(self.root, width=10, borderwidth=1)
-        self.patient_id_e.grid(row=0, column=13, padx=5, pady=5)
+        self.patient_id_e.grid(row=0, column=9, padx=5, pady=5)
 
-        self.employee_num_lbl = Label(self.root, text='Employee Num:')
-        self.employee_num_lbl.grid(row=0, column=14, padx=5, pady=5)
+        self.employee_num_lbl = Label(self.root, text='Employee ID:')
+        self.employee_num_lbl.grid(row=0, column=10, padx=5, pady=5)
         self.employee_num_e = Entry(self.root, width=10, borderwidth=1)
-        self.employee_num_e.grid(row=0, column=15, padx=5, pady=5)
+        self.employee_num_e.grid(row=0, column=11, padx=5, pady=5)
 
         self.submit = Button(self.root, text='Submit', padx=5, pady=5, command=self.submit)
         self.submit.grid(row=1, column=0)

@@ -23,7 +23,7 @@ class SQL:
         )
 
         c = db.cursor()
-        c.execute('USE psych_office')
+        c.execute('USE psych_office_DB')
 
         query = self.entry.get()
         # self.entry.delete(0, END)
